@@ -45,15 +45,16 @@ if not user_input.isdigit():
     sys.exit(1)
 
 key_id = int(user_input)
-if not total >= key_id >=1:
+if not total >= key_id >= 1:
     sys.stderr.write('Invalid id!\n')
     sys.exit(1)
 
-
 hwnd = hwnds[key_id - 1]
+
 boolean1 = create_boolean(True)
 if DwmSetWindowAttribute(hwnd, 20, boolean1, ctypes.sizeof(boolean1)):
     sys.stderr.write('Error setting dark theme!\n')
     sys.exit(1)
+
 boolean2 = create_boolean(True)
 DwmSetWindowAttribute(hwnd, 19, boolean1, ctypes.sizeof(boolean2))
